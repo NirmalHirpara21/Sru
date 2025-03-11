@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love My Sister</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffcc80;
+        }
+        h1 {
+            color: brown;
+        }
+        .hidden {
+            display: none;
+        }
+        .donkey {
+            width: 300px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="page1">
+        <h1>I Love My Sister ❤️</h1>
+        <p>My sister's name is Sru, and she is the best!</p>
+        <button onclick="goToPrank()">Continue</button>
+    </div>
+    
+    <div id="page2" class="hidden">
+        <h1>This is my beautiful sister </h1>
+        <p>Click to reveal her true beauty!</p>
+        <button onclick="showDonkey()">Reveal</button>
+        <br><br>
+        <img id="donkeyImg" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGZ6c3ZzcHBueG1jbjV4eGxiYm90eG43ZHZidGs5bGFjbzg0bWdpNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KEf7gXqvQ8B3SWnUid/giphy.gif" class="donkey hidden">
+
+<img id="donkeyImg2" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGJ3cDVzcTJha2I1Ym45YWh6YmduNXl6aXBzejgyMGFlaHBhMmhjYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NWK7H5cypMH4c/giphy.gif" class="donkey hidden">
+
+        <img id="donkeyImg3" src="https://media.giphy.com/media/srVgXpqz5QdTG/giphy.gif?cid=790b76112imwefe9mf0ffqqof6xmrf5l8rqfdfqpidbbq6uo&ep=v1_gifs_search&rid=giphy.gif&ct=g" class="donkey hidden">
+        <audio id="donkeySound" preload="auto">
+            <source src="donkey.mp3" type="audio/mpeg">
+            <source src="donkey.ogg" type="audio/ogg">
+            <source src="donkey.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <script>
+        function goToPrank() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        }
+        
+        function showDonkey() {
+            let img = document.getElementById('donkeyImg');
+            let sound = document.getElementById('donkeySound');
+            
+            img.style.display = 'block';
+            sound.load(); // Ensure the sound is ready
+            sound.play().then(() => console.log("Audio played successfully"))
+                .catch(error => console.log("Audio play failed: ", error));
+        }
+    </script>
+</body>
+</html>
