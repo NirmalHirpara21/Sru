@@ -19,6 +19,7 @@
         .donkey {
             width: 300px;
             cursor: pointer;
+            margin: 10px;
         }
     </style>
 </head>
@@ -34,20 +35,15 @@
         <p>Click to reveal her true beauty!</p>
         <button onclick="showDonkey()">Reveal</button>
         <br><br>
-        <img id="donkeyImg" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGZ6c3ZzcHBueG1jbjV4eGxiYm90eG43ZHZidGs5bGFjbzg0bWdpNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KEf7gXqvQ8B3SWnUid/giphy.gif" class="donkey hidden">
-
-<img id="donkeyImg2" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGJ3cDVzcTJha2I1Ym45YWh6YmduNXl6aXBzejgyMGFlaHBhMmhjYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NWK7H5cypMH4c/giphy.gif" class="donkey hidden">
-
-        <img id="donkeyImg3" src="https://media.giphy.com/media/srVgXpqz5QdTG/giphy.gif?cid=790b76112imwefe9mf0ffqqof6xmrf5l8rqfdfqpidbbq6uo&ep=v1_gifs_search&rid=giphy.gif&ct=g" class="donkey hidden">
-        <audio id="donkeySound" preload="auto">
-            <source src="donkey.mp3" type="audio/mpeg">
-            <source src="donkey.ogg" type="audio/ogg">
-            <source src="donkey.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
+        <img id="donkeyImg" src="donkey.png" class="donkey hidden">
+        <p id="loveMessage" class="hidden">I love you, behna! ❤️</p>
+        <button id="nextDonkeyBtn" class="hidden" onclick="showDonkeyAgain()">This is real gift sister</button>
+        <p id="biggestGadhi" class="hidden" style="color: red; font-size: 20px; font-weight: bold;">YOU ARE BIGGEST GADHI ON PLANET EARTH</p>
     </div>
     
     <script>
+        let sound = new Audio("donkey.mp3");
+        
         function goToPrank() {
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
@@ -55,12 +51,24 @@
         
         function showDonkey() {
             let img = document.getElementById('donkeyImg');
-            let sound = document.getElementById('donkeySound');
             
             img.style.display = 'block';
-            sound.load(); // Ensure the sound is ready
-            sound.play().then(() => console.log("Audio played successfully"))
-                .catch(error => console.log("Audio play failed: ", error));
+            document.getElementById('loveMessage').style.display = 'block';
+            document.getElementById('nextDonkeyBtn').style.display = 'block';
+            
+            sound.play().catch(error => console.log("Audio play failed: ", error));
+        }
+        
+        function showDonkeyAgain() {
+            let img = document.getElementById('donkeyImg');
+            let text = document.getElementById('biggestGadhi');
+            
+            img.style.display = 'none'; // Hide first
+            setTimeout(() => {
+                img.style.display = 'block'; // Show again after a short delay
+                text.style.display = 'block'; // Show the text
+                sound.play().catch(error => console.log("Audio play failed: ", error));
+            }, 500);
         }
     </script>
 </body>
